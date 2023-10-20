@@ -23,3 +23,9 @@ python manage.py loaddata users_data.json
 python3 manage.py runserver
 ```
 
+## There is also a possibility to run application using docker
+#### Before you run these commands you need to apply migrations to db
+```shell
+docker build -t docker-project .
+docker run -p 8000:8000 docker-project
+```
