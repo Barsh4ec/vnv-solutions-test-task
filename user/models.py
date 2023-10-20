@@ -11,7 +11,7 @@ class Group(models.Model):
 
 
 class User(AbstractUser):
-    groups = models.ManyToManyField(to=Group, related_name="users")
+    groups = models.ManyToManyField(to=Group, related_name="users", blank=True)
 
     def __str__(self) -> str:
         return self.username
