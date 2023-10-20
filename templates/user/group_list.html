@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Group List
+    <a href="{% url "user:group-create" %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+  <br>
+  {% if group_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Group members</th>
+      </tr>
+      {% for group in group_list %}
+        <tr>
+          <td>{{ group.id }}</td>
+          <td>{{ group.name }}</td>
+          <td>{{ group.description }}</td>
+          <td>
+            {% for user in group.users.all %}
+              {{ user }}
+            {% endfor %}
+          </td>
+
+        </tr>
+      {% endfor %}
+
+    </table>
+  {% else %}
+    <p>There are no groups yet.</p>
+  {% endif %}
+{% endblock %}
