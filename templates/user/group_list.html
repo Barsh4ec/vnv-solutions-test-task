@@ -15,6 +15,7 @@
         <th>Name</th>
         <th>Description</th>
         <th>Group members</th>
+        <th>Actions</th>
       </tr>
       {% for group in group_list %}
         <tr>
@@ -25,6 +26,16 @@
             {% for user in group.users.all %}
               {{ user }}
             {% endfor %}
+          </td>
+          <td>
+            <a href="{% url "user:group-update" pk=group.id %}" class="btn btn-secondary link-to-page">
+              Update
+            </a>
+            {% if group.users.count == 0 %}
+              <a href="{% url "user:group-delete" pk=group.id %}" class="btn btn-danger link-to-page">
+                Delete
+              </a>
+            {% endif %}
           </td>
 
         </tr>

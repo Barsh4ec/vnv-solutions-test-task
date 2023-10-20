@@ -18,11 +18,6 @@ class UsersUpdateForm(forms.ModelForm):
 
 
 class GroupForm(forms.ModelForm):
-    users = forms.ModelMultipleChoiceField(
-        queryset=get_user_model().objects.all(),
-        widget=forms.SelectMultiple
-    )
-
     class Meta:
         model = Group
         fields = "__all__"

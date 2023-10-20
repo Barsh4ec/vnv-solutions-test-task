@@ -10,7 +10,7 @@ class UserListView(generic.ListView):
     queryset = User.objects.prefetch_related("groups")
 
 
-class DriverCreateView(generic.CreateView):
+class UserCreateView(generic.CreateView):
     model = User
     form_class = UsersCreationForm
     success_url = reverse_lazy("user:user-list")
@@ -36,9 +36,13 @@ class GroupCreateView(generic.CreateView):
     form_class = GroupForm
     success_url = reverse_lazy("user:group-list")
 
-    def form_valid(self, form):
-        group = form.save()
-        selected_users = form.cleaned_data.get("users")
-        group.users.set(selected_users)
 
-        return super().form_valid(form)
+class GroupUpdateView(generic.UpdateView):
+    model = Group
+    form_class = GroupForm
+    success_url = reverse_lazy("user:group-list")
+
+
+class GroupDeleteView(generic.DeleteView):
+    model = Group
+    success_url = reverse_lazy("user:group-list")
