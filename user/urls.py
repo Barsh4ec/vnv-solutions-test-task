@@ -1,6 +1,7 @@
 from django.urls import path
 
 from user.views import (
+    index,
     UserListView,
     UserCreateView,
     GroupListView,
@@ -13,6 +14,7 @@ from user.views import (
 
 
 urlpatterns = [
+    path("", index, name="index"),
     path("users/", UserListView.as_view(), name="user-list"),
     path("users/create/", UserCreateView.as_view(), name="user-create"),
     path("users/<int:pk>/update/", UserUpdateView.as_view(), name="user-update"),

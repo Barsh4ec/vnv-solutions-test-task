@@ -1,8 +1,14 @@
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
 from user.forms import UsersCreationForm, GroupForm, UsersUpdateForm
 from user.models import User, Group
+
+
+def index(request):
+
+    return render(request, "index.html")
 
 
 class UserListView(generic.ListView):
