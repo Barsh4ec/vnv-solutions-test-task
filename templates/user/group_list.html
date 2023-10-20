@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    Group List
-    <a href="{% url "user:group-create" %}" class="btn btn-primary link-to-page">
-      Create
+  <div class="d-flex">
+    <h3 class="mr-auto mt-4">Groups</h3>
+    <a href="{% url "user:group-create" %}" class="btn btn-outline-primary ml-auto mt-4 mr-5">
+      Create Group
     </a>
-  </h1>
+  </div>
   <br>
   {% if group_list %}
     <table class="table">

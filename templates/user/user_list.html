@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    <div class="d-flex">
-      <a href="{% url "user:user-create" %}" class="btn btn-outline-primary ml-auto mt-4 mr-5">
-        Add User
-      </a>
-    </div>
-  </h1>
+  <div class="d-flex">
+    <h3 class="mr-auto mt-4">Users</h3>
+    <a href="{% url "user:user-create" %}" class="btn btn-outline-primary ml-auto mt-4 mr-5">
+      Add User
+    </a>
+  </div>
   <br>
   {% if user_list %}
     <table class="table">

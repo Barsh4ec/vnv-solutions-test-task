@@ -14,6 +14,7 @@ def index(request):
 class UserListView(generic.ListView):
     model = User
     queryset = User.objects.prefetch_related("groups")
+    paginate_by = 5
 
 
 class UserCreateView(generic.CreateView):
@@ -35,6 +36,8 @@ class UserDeleteView(generic.DeleteView):
 
 class GroupListView(generic.ListView):
     model = Group
+    queryset = Group.objects.prefetch_related("users")
+    paginate_by = 5
 
 
 class GroupCreateView(generic.CreateView):
